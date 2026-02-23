@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceLike</title>
+    <link rel="icon" type="image/x-icon" href="https://static.cdnlogo.com/logos/g/35/google-icon.svg">
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        /* --- SETTINGS BUTTON (Top Right) --- */
+        .settings-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+        }
+
+        .settings-btn:hover {
+            border-color: #ffffff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            transform: rotate(45deg) scale(1.1);
+        }
+
+        /* --- THE SNOW BACKGROUND --- */
+        #snow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .snowflake {
+            position: absolute;
+            color: white;
+            top: -50px;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            text-shadow: 0 0 5px rgba(255,255,255,0.8);
+        }
+
+        @keyframes fall {
+            from { transform: translateY(0); }
+            to { transform: translateY(110vh); }
+        }
+
+        /* --- THE GRID LAYOUT --- */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            z-index: 10;
+            padding: 80px 50px 50px 50px; /* Extra top padding for the button */
+        }
+
+        .game-card {
+            position: relative;
+            width: 280px;
+            height: 280px; 
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .game-card:hover {
+            transform: translateY(-12px) scale(1.05);
+            border-color: #ffffff;
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.9), 0 0 60px rgba(255, 255, 255, 0.4);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 1;
+            transition: 0.3s;
+        }
+
+        .game-title {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Link to your settings page -->
+    <a href="settings.html" class="settings-btn" title="Settings">☰</a>
+
+    <div id="snow-container"></div>
+
+    <div class="game-grid">
+        <!-- ROW 1 -->
+        <a href="https://titaniumv2isthebest.w3spaces.com/new-file-1.html" class="game-card"><img src="https://assets.about.me/background/users/r/a/g/ragdollhit_1734925987_377.jpg" alt="1"><div class="game-title">Ragdoll Hit</div></a>
+        <a href="https://titaniumv2isthebest.w3spaces.com/new-file.html" class="game-card"><img src="https://play-lh.googleusercontent.com/HUuFbIPERNbpW2Q72WIqiJ8bKDzIgT_C4PnYvMBuH0wC3B_KvpKmumm1FXhZj3jmRHw" alt="2"><div class="game-title">Gladihoppers</div></a>
+        <a href="https://titaniumv2isthebest.w3spaces.com/1v1lol.html" class="game-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWaqfMWlZb2y2L3wxKaIx9W0H9VyacAWGI1g&s" alt="3"><div class="game-title">1v1.lol</div></a>
+        <a href="https://titaniumv2isthebest.w3spaces.com/ovo.html" class="game-card"><img src="https://play-lh.googleusercontent.com/v7KwGdPjJGjJjRXn46sck4DwDBdKSeRzGN44CjiXUtKV0jjOi51Bt4wcXud0m-SkXg" alt="4"><div class="game-title">ovo</div></a>
+        
+        <!-- ROW 2 -->
+        <a href="https://titaniumv2isthebest.w3spaces.com/clusterrush.html" class="game-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5n1TpB00D1DgqGBn2incA63v_CNZOc6b7_w&s" alt="5"><div class="game-title">Cluster rush</div></a>
+        <a href="https://titaniumv2isthebest.w3spaces.com/ragdoll-ar.html" class="game-card"><img src="https://imgs.crazygames.com/ragdoll-archers_1x1/20250926080758/ragdoll-archers_1x1-cover?format=auto&quality=100&metadata=none&width=1200" alt="6"><div class="game-title">Ragdoll archers</div></a>
+        <a href="https://titaniumv2isthebest.w3spaces.com/basket-random.html" class="game-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjrpg1dhQCVyAKaW-rhuyZkOdqU0-Olm7kKA&s" alt="7"><div class="game-title">basketball random</div></a>
+        <a href="https://titaniumv2isthebest.w3spaces.com/geo.html" class="game-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOhOsPkaWFLLk9mZYkzgUcxfaALYhtbhh29w&s" alt="8"><div class="game-title">Geometry dash</div></a>
+    </div>
+
+    <script>
+        // PANIC KEY LOGIC (Immediate Redirect)
+        document.addEventListener('keydown', function(e) {
+            // Default Panic Key: ` (Grave Accent)
+            if (e.key === '`') {
+                window.location.replace("https://google.com");
+            }
+        });
+
+        const container = document.getElementById('snow-container');
+        const snowflakeCount = 100;
+        const shapes = ['❄', '❄', '•', '❄', '•'];
+
+        for (let i = 0; i < snowflakeCount; i++) {
+            const flake = document.createElement('div');
+            flake.className = 'snowflake';
+            flake.innerText = shapes[Math.floor(Math.random() * shapes.length)];
+            flake.style.left = Math.random() * 100 + 'vw';
+            const size = (Math.random() * 15 + 5);
+            flake.style.fontSize = size + 'px';
+            flake.style.animationDuration = (Math.random() * 5 + 3) + 's';
+            flake.style.animationDelay = (Math.random() * 5) + 's';
+            container.appendChild(flake);
+        }
+    </script>
+</body>
+</html>
