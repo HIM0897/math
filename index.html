@@ -1,0 +1,129 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Like - Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com');
+
+        body {
+            margin: 0;
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        /* --- ORIGINAL SNOW BACKGROUND --- */
+        #snow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .snowflake {
+            position: absolute;
+            color: white;
+            top: -50px;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            text-shadow: 0 0 5px rgba(255,255,255,0.8);
+        }
+
+        @keyframes fall {
+            from { transform: translateY(0); }
+            to { transform: translateY(110vh); }
+        }
+
+        /* --- HERO CONTENT --- */
+        .hero-section {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        h1 {
+            font-size: 80px;
+            margin: 0;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        p {
+            font-size: 20px;
+            margin: 0;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        /* --- THE GLOWING START BUTTON --- */
+        .start-btn {
+            margin-top: 40px;
+            padding: 20px 50px;
+            font-size: 22px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Same glow effect as your game boxes */
+        .start-btn:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ffffff;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="snow-container"></div>
+
+    <div class="hero-section">
+        <h1>SPACE LIKE</h1>
+        <p>Welcome to Space Like. Start your journey today.</p>
+        <a href="https://titaniumv2isthebest.w3spaces.com/MATH.html" class="start-btn">Start Journey</a>
+    </div>
+
+    <script>
+        const container = document.getElementById('snow-container');
+        const snowflakeCount = 120;
+        const shapes = ['❄', '•', '❄', '•'];
+
+        for (let i = 0; i < snowflakeCount; i++) {
+            const flake = document.createElement('div');
+            flake.className = 'snowflake';
+            flake.innerText = shapes[Math.floor(Math.random() * shapes.length)];
+            flake.style.left = Math.random() * 100 + 'vw';
+            const size = (Math.random() * 15 + 5);
+            flake.style.fontSize = size + 'px';
+            flake.style.animationDuration = (Math.random() * 5 + 3) + 's';
+            flake.style.animationDelay = (Math.random() * 5) + 's';
+            container.appendChild(flake);
+        }
+    </script>
+</body>
+</html>
